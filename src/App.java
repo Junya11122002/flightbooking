@@ -1,7 +1,11 @@
-public class App {
+
+
+public class App extends javax.swing.JFrame{    // when ActionListener is implemented then, actionPerformed(ActionEvent e) has to be implemented
+
     public static void main(String[] args) throws Exception {
-        // this is some random new changes
-        System.out.println("Welcome to Flight ");
-        System.out.println("Hello, World!");
+        // from the App class which is frame of the GUI
+        // we operate and customize it from this main method
+        // create new LoginOpen class that can display the login window
+        new LoginOpen().loginOpen();
     }
 }
