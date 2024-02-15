@@ -7,13 +7,12 @@ import javax.swing.JOptionPane;
 
 public class readCSV extends javax.swing.JFrame {
 
-
-
     // this method reads csv file and look for the username and password that's input by the user
     public void readFile(String path, String email, String pass){
         BufferedReader buff = null;
         String line = "";
         String delimiter = ";";   // file splits it's column by ; 
+        Boolean check = false;
         try{
             buff = new BufferedReader(new FileReader(path));
             while((line = buff.readLine()) != null){
@@ -28,10 +27,12 @@ public class readCSV extends javax.swing.JFrame {
                     menuFrame.pack();
                     menuFrame.setLocationRelativeTo(null);
                     this.dispose();
+                    check = true;
                 }
-                else{
+            }
+            if(!check){
                     JOptionPane.showMessageDialog(null, "Either Email or Password is wrong\n");
-                }
+                    new LoginOpen().loginOpen();
             }
         }catch(FileNotFoundException e){
             e.printStackTrace();

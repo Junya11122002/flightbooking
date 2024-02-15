@@ -195,23 +195,6 @@ public class Login extends javax.swing.JFrame {
         getAccessibleContext().setAccessibleName("LOGIN");
 
         pack();
-        /* 
-        jPanel1.add(jLabel1);
-        jPanel1.add(jLabel2);
-        jPanel1.add(jLabel3);
-        jPanel1.add(jLabel4);
-        jPanel1.add(jLabel6);
-        jPanel1.add(jButton1);
-        jPanel1.add(jButton2);
-        jPanel1.add(jTextField1);
-        jPanel1.add(jPasswordField1);
-        
-        jFrame.add(jPanel1, BorderLayout.CENTER);  // set the panel on the fram
-        jFrame.add(jPanel2);
-        jFrame.add(jPanel3);
-        jFrame.pack();
-        jFrame.setVisible(true);
-        */
 
     }// end of the initComponents
 
