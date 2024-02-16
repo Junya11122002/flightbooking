@@ -9,3 +9,4 @@ public class App extends javax.swing.JFrame{    // when ActionListener is implem
         new LoginOpen().loginOpen();
     }
 }
+// new changes
