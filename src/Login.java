@@ -50,7 +50,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Showcard Gothic", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Flights Agent");
+        jLabel2.setText("Marika Airline");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
@@ -213,13 +213,14 @@ public class Login extends javax.swing.JFrame {
         // TODO add code here when the login button is clicked
         String email = jTextField1.getText();
         String password = jPasswordField1.getText();
+
         if(email.isEmpty() || password.isEmpty()){
             JOptionPane.showMessageDialog(jButton1, "Username or Password is left empty");
         }
         else{  
             // this part is for login check 
             String path = "/Users/junyaogawa/Desktop/UTA 2024 Spring (Desktop)/CSE 1325/Flight Booking System/user.csv";
-            new readCSV().readFile(path, email, password);
+            new readCSV().readFile(path,  email, password);
             dispose();
         }
     }

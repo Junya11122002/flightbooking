@@ -1,9 +1,15 @@
+import java.text.SimpleDateFormat;
+import javax.swing.text.MaskFormatter;
+import javax.swing.JFormattedTextField;
+import java.text.ParseException;
+
 public class Menu extends javax.swing.JFrame{
-    public Menu(){  // constructor
-        initComponents();
+    public Menu(String username, String email, String pass){  // Main constructor takes username, email, and password
+        initComponents(username, email, pass);
     }
 
-    public void  initComponents(){
+    public void  initComponents(String username, String email, String pass){
+        try{
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -12,14 +18,17 @@ public class Menu extends javax.swing.JFrame{
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();     // username text field 
+        dateFormat = new MaskFormatter("####-##-##");
+        jDateField = new JFormattedTextField(dateFormat);
+        
         jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();       // email text field
+        jTextField2 = new javax.swing.JTextField();       // Leaving from .... field
+        jTextField1 = new javax.swing.JTextField();     // Going to... filed
         jLabel7 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();    // password text field
+        //jPasswordField1 = new javax.swing.JPasswordField();    
         jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();       // sign up button
-        jButton2 = new javax.swing.JButton();       // Login page skip button
+        jButton1 = new javax.swing.JButton();       // Search
+        jButton2 = new javax.swing.JButton();       // Logout button
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Main Menu");
@@ -33,11 +42,11 @@ public class Menu extends javax.swing.JFrame{
 
         jLabel2.setFont(new java.awt.Font("Showcard Gothic", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Flights Agent");
+        jLabel2.setText("Marika Airline");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel3.setText("");
+        jLabel3.setText("Login as "+username);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -79,10 +88,11 @@ public class Menu extends javax.swing.JFrame{
 
         jLabel5.setBackground(new java.awt.Color(102, 102, 102));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("Date");
+        jLabel5.setText("Date   (yyyy-mm-dd)");
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(102, 102, 102));
+        jDateField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jDateField.setForeground(new java.awt.Color(102, 102, 102));
+        jDateField.setColumns(10);  // set preffered width
 
         jLabel6.setBackground(new java.awt.Color(102, 102, 102));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -95,8 +105,8 @@ public class Menu extends javax.swing.JFrame{
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Going to...");
 
-        jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(102, 102, 102));
+        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(102, 102, 102));
 
         jLabel8.setText("");
 
@@ -131,11 +141,11 @@ public class Menu extends javax.swing.JFrame{
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel5)
-                                .addComponent(jTextField1)
+                                .addComponent(jDateField)
                                 .addComponent(jLabel6)
                                 .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
                                 .addComponent(jLabel7)
-                                .addComponent(jPasswordField1))
+                                .addComponent(jTextField1))
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel8)
@@ -151,7 +161,7 @@ public class Menu extends javax.swing.JFrame{
                 .addGap(29, 29, 29)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -159,7 +169,7 @@ public class Menu extends javax.swing.JFrame{
                 .addGap(29, 29, 29)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
@@ -188,10 +198,24 @@ public class Menu extends javax.swing.JFrame{
         );
 
         pack();
-    } // the end of initialcomponents
+    }catch (ParseException e) {
+        e.printStackTrace();
+    }
+} // the end of initialcomponents
 
-    public void jButton1ActionPerformed(java.awt.event.ActionEvent evt){}
-    public void jButton2ActionPerformed(java.awt.event.ActionEvent evt){}
+    // if search button is clicked
+    public void jButton1ActionPerformed(java.awt.event.ActionEvent evt){
+        
+    }
+
+    // if logout button is clicked
+    public void jButton2ActionPerformed(java.awt.event.ActionEvent evt){
+        Login LoginFrame = new Login();
+        LoginFrame.setVisible(true);
+        LoginFrame.pack();
+        LoginFrame.setLocationRelativeTo(null); 
+        this.dispose();     // release screen resources 
+    }
 
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -206,7 +230,11 @@ public class Menu extends javax.swing.JFrame{
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField jPasswordField1;
+    //private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    //private java.text.SimpleDateFormat dateFormat;
+    private javax.swing.text.MaskFormatter dateFormat;
+    private javax.swing.JFormattedTextField jDateField;
 }
+

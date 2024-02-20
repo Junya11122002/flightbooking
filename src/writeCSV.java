@@ -18,7 +18,7 @@ public class writeCSV extends javax.swing.JFrame {
         buff.write(pass);
         buff.write("\n");
         buff.close();
-        Menu menuFrame = new Menu();
+        Menu menuFrame = new Menu(user, email, pass);
         menuFrame.setVisible(true);
         menuFrame.pack();
         menuFrame.setLocationRelativeTo(null);

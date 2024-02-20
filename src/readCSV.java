@@ -21,8 +21,9 @@ public class readCSV extends javax.swing.JFrame {
                 // Username;  Email;    Passwprd
                 // file[0]    file[1]   file[2]
                 if(file[1].equals(email) && file[2].equals(pass)){   // if there exists email and password
+                    String username = file[0].toString();
                       // direct to the main menu 
-                    Menu menuFrame = new Menu();
+                    Menu menuFrame = new Menu(username, email, pass);
                     menuFrame.setVisible(true);
                     menuFrame.pack();
                     menuFrame.setLocationRelativeTo(null);
