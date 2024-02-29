@@ -1,4 +1,3 @@
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import java.awt.*;
@@ -229,7 +228,7 @@ public class Login extends javax.swing.JFrame {
     // variables declaretion
     public javax.swing.JPanel jPanel3;
     public javax.swing.JPanel jPanel2;
-    public javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton1;   // 
     public javax.swing.JButton jButton2;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;
@@ -239,7 +238,7 @@ public class Login extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel6;
     public javax.swing.JLabel jLabel7;
     public javax.swing.JPanel jPanel1;
-    public javax.swing.JPasswordField jPasswordField1;
-    public javax.swing.JTextField jTextField1;
+    public javax.swing.JPasswordField jPasswordField1; // password
+    public javax.swing.JTextField jTextField1;   // email text field
     public javax.swing.JFrame jFrame;
 }

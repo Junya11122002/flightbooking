@@ -22,8 +22,8 @@ public class Menu extends javax.swing.JFrame{
         jDateField = new JFormattedTextField(dateFormat);
         
         jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();       // Leaving from .... field
-        jTextField1 = new javax.swing.JTextField();     // Going to... filed
+        jTextField2 = new javax.swing.JTextField();       // Dept Leaving from .... field
+        jTextField1 = new javax.swing.JTextField();     // Dest Going to... filed
         jLabel7 = new javax.swing.JLabel();
         //jPasswordField1 = new javax.swing.JPasswordField();    
         jLabel8 = new javax.swing.JLabel();
@@ -115,7 +115,7 @@ public class Menu extends javax.swing.JFrame{
         jButton1.setText("Search");
         jButton1.addActionListener(new java.awt.event.ActionListener() {      // Initialize actionLister for Sign up button
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton1ActionPerformed(evt, username, email, pass);
             }
         });
 
@@ -204,7 +204,13 @@ public class Menu extends javax.swing.JFrame{
 } // the end of initialcomponents
 
     // if search button is clicked
-    public void jButton1ActionPerformed(java.awt.event.ActionEvent evt){
+    public void jButton1ActionPerformed(java.awt.event.ActionEvent evt, String username, String email, String pass){
+        // TODO add action that operates after click the search button
+        String date = jDateField.getText();  //Date of the flight
+        String dept = jTextField2.getText();  // Flight's depature
+        String dest = jTextField1.getText();  // Flight's destination
+
+        Result ResultFrame = new Result(username, email, pass, date, dept, dest);
         
     }
 
